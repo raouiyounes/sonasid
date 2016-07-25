@@ -20,7 +20,7 @@
 using namespace std;
 using namespace Eigen;
 namespace sonasid {
-
+tttttt
 Mat img = cv::imread("b.jpg", 0); // force grayscale
 Mat thresh=Mat::zeros(img.size(),CV_8UC1);
 ofstream annotation("file.txt");
