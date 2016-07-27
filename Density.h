@@ -21,6 +21,7 @@ class Density: public Image {
 	MatrixXd PtsAnnotation;
 
 public:
+	 int numberof_annot;
 	char *img_str;
 	Mat img;
 	int index;
@@ -28,6 +29,11 @@ public:
 	MatrixXd getXY();
 	virtual ~Density();
 	friend void onMouse( int event, int x, int y, int, void* );
+	MatrixXd readAnnotations();
+	Mat computeF0();
+
+
+
 };
 
 } /* namespace sonasid */

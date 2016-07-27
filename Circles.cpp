@@ -7,10 +7,12 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/nonfree/nonfree.hpp"
 #include <opencv2/imgproc/imgproc_c.h>
+#include <eigen3/Eigen/Dense>
+
 #include <cv.h>
 #include <highgui.h>
-
-
+#include "Density.h"
+using namespace Eigen;
 using namespace cv;
 using namespace std;
 typedef vector<std::vector<double> > struct1;
@@ -99,7 +101,6 @@ int dim=50;
           detector->detect(image1, keypointsA);
           cv::Ptr<cv::DescriptorExtractor> descriptorExtractor =cv::Algorithm::create<cv::DescriptorExtractor>("Feature2D.BRISK");
           descriptorExtractor->compute(image1, keypointsA, descriptorsA);
-
           for(int i=0;i<keypointsA.size();i++){
         outputFile<<keypointsA[i].pt.x<<" "<<keypointsA[i].pt.y<<" ";
          outputFile<<descriptorsA.row(i)<<"\n";
@@ -122,25 +123,28 @@ for( size_t i = 0; i <keypointsA.size(); i++ )
 outputFile <<"\n";
   }
 
-
-
-
-
-
-
 };
-
-
 }
   using namespace sonasid;
 int main(){
     string str="imageDb/im6.JPG";
-  char *ss;
+    vector<std::vector<double> >   descriptor;
+    MatrixXd annotations(10,2);
+    char *ss;
    ss = (char*)str.c_str();
 Circles *obj_sona=new Circles(ss);
-  obj_sona->number_of_line=0;
-   obj_sona->SURFExtractor(20);
- //  obj_sona->extractBrisc(ss);
+ // obj_sona->number_of_line=0;
+  // obj_sona->SURFExtractor(20);
+ Density *dst=new Density();
+ dst->numberof_annot=5;
+ annotations=dst->getXY();
+ annotations=dst->readAnnotations();
+
+ cout<<" "<<annotations(0,0);
+ int x=dst->SURFExtractor();
+ descriptor=dst->descriptor_vect;
+
+   //  obj_sona->extractBrisc(ss);
 
   return 0;
 } 

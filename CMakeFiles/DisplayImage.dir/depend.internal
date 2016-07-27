@@ -3,6 +3,8 @@
 
 CMakeFiles/DisplayImage.dir/Circles.cpp.o
  /home/younes/Documents/newcode/Circles.cpp
+ /home/younes/Documents/newcode/Density.h
+ /home/younes/Documents/newcode/Image.h
  /usr/include/opencv/cv.h
  /usr/include/opencv/highgui.h
 CMakeFiles/DisplayImage.dir/Density.cpp.o
