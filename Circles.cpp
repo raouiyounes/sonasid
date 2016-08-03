@@ -137,12 +137,16 @@ Circles *obj_sona=new Circles(ss);
   // obj_sona->SURFExtractor(20);
  Density *dst=new Density();
  dst->numberof_annot=5;
- annotations=dst->getXY();
- annotations=dst->readAnnotations();
+ MatrixXd annot(4,2);
 
- cout<<" "<<annotations(0,0);
- int x=dst->SURFExtractor();
- descriptor=dst->descriptor_vect;
+ annot=dst->getXY();
+
+cout<<annot(0,0)<<"eeeeeeeeeeeeee";
+// annotations=dst->readAnnotations();
+
+ //cout<<" "<<annotations(0,0);
+ //int x=dst->SURFExtractor();
+ //descriptor=dst->descriptor_vect;
 
    //  obj_sona->extractBrisc(ss);
 

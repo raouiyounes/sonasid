@@ -21,7 +21,9 @@ class Density: public Image {
 	MatrixXd PtsAnnotation;
 
 public:
-	 int numberof_annot;
+	vector<int> anot_x;
+	vector<int> anot_y;
+	int numberof_annot;
 	char *img_str;
 	Mat img;
 	int index;
